@@ -1,0 +1,257 @@
+/* Theme Variables */
+:root {
+    --background-color: #1f1f1f;
+    --text-color: #e0e0e0;
+    --sidebar-background: #2d2d2d;
+    --sidebar-link-color: #e0e0e0;
+    --sidebar-link-active-background: #4caf50;
+    --sidebar-link-active-color: white;
+    --button-color: #5a5a5a;
+    --buton-color1: #303030;
+    --button-hover: #3ebe1d;
+    --buton-hover1: #5e5e5e;
+
+}
+
+[data-theme='light'] {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --sidebar-background: #f0f0f0;
+    --sidebar-link-color: #000000;
+    --sidebar-link-active-background: #4caf50;
+    --sidebar-link-active-color: white;
+
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+}
+
+.content {
+    flex-grow: 1; /* Takes remaining space */
+    padding: 25px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Container and Sidebar */
+.container {
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    align-items: flex-start; /* Align items to the start of the flex line */
+    width: 100%; /* Ensures container takes full width of the viewport */
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column; /* Ensures the sidebar's contents are laid out vertically */
+    width: 250px; /* Fixed width for the sidebar */
+    background-color: var(--sidebar-background);
+    color: var(--text-color);
+    padding: 20px;
+    height: 100vh; /* Full height */
+    overflow: auto; /* Allows scrolling */
+}
+
+.sidebar-buttons {
+    margin-top: auto; /* Pushes the buttons to the bottom */
+    display: flex;
+    gap: 10px;
+    padding-top: 10px; /* Adds some space above the buttons */
+    border-top: 1px solid #444; /* Optional: adds a separator line */
+}
+
+
+.user-info {
+    display: flex;
+    align-items: center;
+    background: url('../img/users/default.png') no-repeat center left;
+    background-size: 48px 48px;
+    padding-left: 60px;
+    height: 60px;
+}
+
+.user-info h2 {
+    margin: 0;
+}
+
+.sidebar h2 {
+    color: var(--text-color);
+    font-size: 1.25em;
+}
+
+.sidebar ul {
+    list-style: none;
+    flex: 1;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: var(--sidebar-link-color);
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.sidebar ul li a.active {
+    background-color: var(--sidebar-link-active-background);
+    color: var(--sidebar-link-active-color);
+}
+
+.sidebar ul li a.active:hover {
+    background-color: #444;
+}
+
+.sidebar ul li a:hover {
+    background-color: #444;
+}
+
+.sidebar-buttons a.active {
+    background-color: var(--sidebar-link-active-background);
+}
+
+.sidebar-buttons {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.sidebar-buttons .button:hover {
+    background-color: #444;
+}
+
+.sidebar-buttons .button.logout {
+    background-color: var(--button-color);
+}
+
+.sidebar-buttons .button.logout:hover {
+    background-color: #444;
+}
+
+.sidebar-buttons .button {
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--button-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;
+    text-align: center;
+}
+
+
+
+/* SETTINGS PAGE */
+
+
+
+.tabs {
+    display: flex;
+    justify-content: start;  /* Aligns items to the start to better control spacing */
+    margin-bottom: 20px;
+    gap: 5px;  /* Increases gap between each tab button */
+}
+
+.tab-button {
+    padding: 10px 15px;  /* Unchanged padding for individual buttons */
+    background-color: var(--sidebar-background);
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.tab-button:hover {
+    background-color: #444;  /* Darker background on hover */
+}
+
+.tab-button.active {
+    background-color: var(--sidebar-link-active-background);  /* Active tab background */
+    color: var(--sidebar-link-active-color);  /* Text color for active tab */
+}
+
+.tab-content {
+    display: none;  /* Hide all tab content by default */
+    color: #c7c2c2;  /* Dark grey text color */
+    margin-top: 50px;  /* Margin top for content below tabs */
+}
+
+.tab-content.active {
+    display: block;  /* Show active tab content */
+}
+
+/* Styling for form elements */
+.form-group {
+    margin-bottom: 30px;  /* Space between form groups */
+}
+
+.form-group label {
+    display: block;  /* Make labels block level for better control */
+    margin-bottom: 5px;  /* Small space below the label */
+}
+
+.form-group input[type="file"],
+.form-group input[type="password"],
+.form-group input[type="email"] {
+    width: 200px;  /* Full width inputs */
+    padding: 8px;  /* Padding inside the inputs */
+    border: 1px solid #ccc;  /* Grey border */
+    border-radius: 4px;  /* Rounded borders on inputs */
+}
+
+/* Styling for headings within the tab */
+h2, h3 {
+    color: #979292;  /* Dark grey color for headings */
+}
+
+/* Paragraph styling within the tab */
+p {
+    line-height: 20px;  /* Spacing between lines */
+}
+
+
+.activity-table table {
+    width: 600px;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.activity-table th, .activity-table td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top; /* Ensures alignment is consistent at the top */
+}
+
+.activity-table th {
+    background-color: #444;
+    font-weight: normal;
+}
+
+.activity-table tr:nth-child(odd) {
+    background-color: #383838;
+}
+
+.activity-table tr:hover {
+    background-color: #2a2a2a;
+}
